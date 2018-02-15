@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add lot
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('add_lot') }}" method="post">
+<head>
+    <style>
+   table {
+    width: 100%; /* Ширина таблицы */
+    background: white; /* Цвет фона таблицы */
+    color: black; /* Цвет текста */
+    border: 1px black; /* Расстояние между ячейками */
+    text-align: right;
+   }
+
+   td, th {
+    background: white; /* Цвет фона ячеек */
+    padding: 5px;
+    border: 1px black;
+    text-align: left;
+    width: 150px;
+   }
+    </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>
+                    <font size="4" color="red">*</font> <b>1. Item for sale:</b>
+                </td>
+                <td>
+                    <input class="form-control" input type="text" name="item"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font size="4" color="red">*</font> <b>2. Description of your item:</b>
+                </td>
+                <td>
+                     <input class="form-control" input type="text" name="description"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font size="4" color="red">*</font> <b>3. Picture of your item (put here url for your picture): </b>
+                </td>
+                <td>
+                    <input class="form-control" input type='url' name="item_picture"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font size="4" color="red">*</font> <b>4. Sale starts at:  </b>
+                </td>
+                <td>
+                    <input class="form-control" input type="date" name="date_start"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font size="4" color="red">*</font><b> 5. Sale ends at:</b>
+                </td>
+                <td>
+                    <input class="form-control" input type="date" class="date" name="date_end"/>
+                </td>
+            </tr>
+            <tr>
+               <td>
+                    <font size="4" color="red">*</font> <b>6. Maximum price, USD:</b>
+                </td>
+                <td>
+                    <input class="form-control" input type="text" name="max_price"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <font size="4" color="red">*</font> <b>7. Minimum price, USD:</b>
+                </td>
+                <td>
+                    <input class="form-control" input type="text" name="min_price"/>
+                </td>
+            </tr>
+           <br/>
+</table>
+ </body>
+        <br/>
+        <button class="btn btn-default" type="submit"><b>Add item</b></button>
+    </form>
+{% endblock %}

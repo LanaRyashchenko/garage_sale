@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+ <form action="{{ url_for('index') }}" method="post">
+<h1>  </h1>
+
+{% for product in all_products %}
+  <head>
+  <style>
+   table {
+    width: 100%; /* Ширина таблицы */
+    background: white; /* Цвет фона таблицы */
+    color: black; /* Цвет текста */
+    border: 1px solid black; /* Расстояние между ячейками */
+    text-align: right;
+    vertical-align: central;
+   }
+
+   td, th {
+    background: white; /* Цвет фона ячеек */
+    padding: 5px;
+    border: 1px black;
+    text-align: left;
+    width: 200px;
+   }
+  </style>
+ </head>
+ <body>
+  <table>
+   <tr>
+     <th>
+       <img src="{{ product.item_picture }}" width="200px" heigh="300px">
+      </th>
+      <td>
+     <font size="4" color="blue"><b>{{ product.item}} </b></font> by <font size="4" color="black"><b> {{product.username}} </b> ({{product.e_mail}})</font>
+          <br/>
+            {{ product.description }}
+          <br/>
+          <font size="2" color="black"><b>Sale starts:</b></font> {{ product.date_start}}
+          <br/>
+          <font size="2" color="black"><b>Sale ends:</b></font> {{ product.date_end}}
+          <br/>
+          <font size="2" color="black"><b>Maximum price, USD: </b></font>{{ product.max_price }}
+          <br/>
+          <font size="2" color="black"><b>Minimum price, USD:</b></font> {{ product.min_price }}
+          <br/>
+          <font size="2" color="black"><b>Days of sale:</b></font> {{ product.days_of_sale }}
+          <br/>
+          <font size="2" color="black"><b>Price now, USD: </b></font> {{ product.price }}
+          <br/>
+      </td>
+  </tr>
+  </table>
+ </body>
+          {%endfor%}
+</form>
+{% endblock %}
